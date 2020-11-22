@@ -2,10 +2,23 @@ package org.devops
 
 //格式化输出
 def PrintMes(value,color){
-    colors = ['red'   : "\033[40;31m >>>>>>>>>>>${value}<<<<<<<<<<< \033[0m",
-              'blue'  : "\033[47;34m ${value} \033[0m",
-              'green' : "[1;32m>>>>>>>>>>${value}>>>>>>>>>>[m",
-              'green1' : "\033[40;32m >>>>>>>>>>>${value}<<<<<<<<<<< \033[0m" ]
+    BLACK='\e[1;30m'
+    RED='\e[1;31m'
+    GREEN='\e[1;32m'
+    YELLOW='\e[1;33m'
+    BLUE='\e[1;34m'
+    PURPLE='\e[1;35m'
+    PINK='\e[1;36m'
+    WHITE='\e[1;37m'
+    END='\e[0m'
+
+    colors = ['red'   : "${BLACK}${value}${END}",
+              'blue'  : "${BLUE}${value}${END}",
+              'green' : "${GREEN}${value}${END}",
+              'yellow': "${YELLOW}${value}${END}",
+              'purple': "${PURPLE}${value}${END}",
+              'PINK'  : "${PINK}${value}${END}"
+             ]
     ansiColor('xterm') {
         println(colors[color])
     }
